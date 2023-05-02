@@ -35,3 +35,8 @@ const getTasks = async (req, res, next) => {
         res.status(404).send(err.message);
     }
 };
+
+module.exports = {
+    addTask,
+    getTasks
+}

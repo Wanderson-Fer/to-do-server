@@ -22,16 +22,17 @@ const addTask = async (req, res, next) => {
 };
 
 const getTasks = async (req, res, next) => {
+    console.log("get Tasks");
     try {
         // Lê os dados do nó "/example"
         await ref.once("value").then((snapshot) => {
-            const read = snapshot.val();
-            console.log(read); // exibe os dados lidos
+            console.log(snapshot.val()); // exibe os dados lidos
         }).catch((err) => {
             console.error("Erro ao ler os dados: ", err.message);
         });
-        res.send('Record read successfuly\n' + read);
+        res.send('Record read successfuly');
     } catch (err) {
+        console.log('Erro do servidor: ', err.message);
         res.status(404).send(err.message);
     }
 };
